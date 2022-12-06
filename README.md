@@ -12,6 +12,7 @@ BACKEND- TWO Separate routes for 1. User and 2. Notes/Img Description
 Frontend- Implemented Redux--- Created store for Reducers, Userinfo, Middleware -> Reducers for User and Img description -> Logic for Reducers in separate actions folder
 
 Project Also stores the lastest login userinfo in local storege.
+Images stored in cloudinary.com 
 
 [Screenshot (1086)](https://user-images.githubusercontent.com/92312146/205922145-c3fd6a85-2819-46f2-ae12-e33d9262014b.png)
 HOME PAGE
