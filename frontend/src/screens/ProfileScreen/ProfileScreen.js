@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import MainScreen from "../../components/MainScreen";
 import "./ProfileScreen.css";
@@ -14,7 +14,7 @@ const ProfileScreen = ({ location, history }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [picMessage, setPicMessage] = useState();
-
+  const [countpic, setCountpic] = useState(0);
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -22,6 +22,16 @@ const ProfileScreen = ({ location, history }) => {
 
   const userUpdate = useSelector((state) => state.userUpdate);
   const { loading, error, success } = userUpdate;
+
+  // const ref = useRef(null);
+
+  // useEffect(() => {
+  //   const el2 = ref.current;
+  //   console.log(el2);
+
+  //   const el = document.querySelector("#container");
+  //   alert("You are about to view your profile data and pic");
+  // }, []);
 
   useEffect(() => {
     if (!userInfo) {
@@ -33,6 +43,13 @@ const ProfileScreen = ({ location, history }) => {
     }
   }, [history, userInfo]);
 
+  // const handleClick = (event) => {
+  //   // 👇️ refers to the image element
+  //   event.preventDefault();
+  //   console.log(event.target);
+
+  //   alert("Image clicked ");
+  // };
   const postDetails = (pics) => {
     setPicMessage(null);
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
@@ -137,7 +154,15 @@ const ProfileScreen = ({ location, history }) => {
               justifyContent: "center",
             }}
           >
-            <img src={pic} alt={name} className="profilePic" />
+            {/* <div ref={ref} id="container"> */}
+            <img
+              src={pic}
+              alt={name}
+              onClick={() => setCountpic(countpic + 1)}
+              className="profilePic"
+            />
+            <p>{countpic} times opened</p>
+            {/* </div> */}
           </Col>
         </Row>
       </div>

@@ -82,6 +82,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       email: updatedUser.email,
       pic: updatedUser.pic,
       isAdmin: updatedUser.isAdmin,
+      countpic: updatedUser.countpic,
       token: generateToken(updatedUser._id),
     });
   } else {
